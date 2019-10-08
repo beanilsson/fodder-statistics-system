@@ -1,34 +1,36 @@
 <p id="notice"><%= notice %></p>
 
+<h2>Batch</h2>
+
 <p>
-  <strong>Name:</strong>
+  <strong>Namn:</strong>
   <%= @batch.name %>
 </p>
 
 <p>
-  <strong>Amount:</strong>
+  <strong>Mängd:</strong>
   <%= @batch.amount %>
 </p>
 
 <p>
-  <strong>Refillable:</strong>
+  <strong>Påfyllningsbar:</strong>
   <%= @batch.refillable %>
 </p>
 
 <p>
-  <strong>Unknownamount:</strong>
+  <strong>Okänd mängd:</strong>
   <%= @batch.unknownAmount %>
 </p>
 
 <p>
-  <strong>Unit:</strong>
+  <strong>Enhet:</strong>
   <%= @batch.unit %>
 </p>
 
 <p>
-  <strong>Foddertype:</strong>
+  <strong>Fodertyp:</strong>
   <%= @batch.fodderType %>
 </p>
 
-<%= link_to 'Edit', edit_batch_path(@batch) %> |
-<%= link_to 'Back', batches_path %>
+<%= link_to 'Ändra', edit_batch_path(@batch) %> |
+<%= link_to 'Tillbaka', batches_path %>

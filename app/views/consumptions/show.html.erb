@@ -1,12 +1,14 @@
 <p id="notice"><%= notice %></p>
 
+<h2>Utfodring</h2>
+
 <p>
-  <strong>Date:</strong>
+  <strong>Datum:</strong>
   <%= @consumption.date %>
 </p>
 
 <p>
-  <strong>Amount:</strong>
+  <strong>Mängd:</strong>
   <%= @consumption.amount %>
 </p>
 
@@ -16,9 +18,9 @@
 </p>
 
 <p>
-  <strong>Animal group:</strong>
+  <strong>Djur/djurgrupp:</strong>
   <%= @consumption.animal_group %>
 </p>
 
-<%= link_to 'Edit', edit_consumption_path(@consumption) %> |
-<%= link_to 'Back', consumptions_path %>
+<%= link_to 'Ändra', edit_consumption_path(@consumption) %> |
+<%= link_to 'Tillbaka', consumptions_path %>
