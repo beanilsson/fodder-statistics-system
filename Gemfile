@@ -21,6 +21,9 @@ gem 'jbuilder', '~> 2.7'
 # gem 'bcrypt', '~> 3.1.7'
 gem 'mongoid', '~> 7.0.5'
 gem 'bson_ext'
+gem 'bootstrap', '~> 4.3.1'
+gem 'jquery-rails'
+gem 'sprockets-rails', '~> 3.2.1'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
