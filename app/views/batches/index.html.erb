@@ -1,37 +1,27 @@
 <p id="notice"><%= notice %></p>
 
 <h2>Batchar</h2>
-
-<table>
-  <thead>
-    <tr>
-      <th>Namn</th>
-      <th>Mängd</th>
-      <th>Påfyllningsbar</th>
-      <th>Okänd mängd</th>
-      <th>Enhet</th>
-      <th>Fodertyp</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @batches.each do |batch| %>
-      <tr>
-        <td><%= batch.name %></td>
-        <td><%= batch.amount %></td>
-        <td><%= batch.refillable %></td>
-        <td><%= batch.unknownAmount %></td>
-        <td><%= batch.unit %></td>
-        <td><%= batch.fodderType %></td>
-        <td><%= link_to 'Visa', batch %></td>
-        <td><%= link_to 'Ändra', edit_batch_path(batch) %></td>
-        <td><%= link_to 'Ta bort', batch, method: :delete, data: { confirm: 'Är du säker?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
+<%= link_to '<button class="btn btn-success">Ny batch</button>'.html_safe, new_batch_path %>
 <br>
-<%= link_to 'Start', start_index_path %>
-<%= link_to 'Ny batch', new_batch_path %>
+<% @batches.each do |batch| %>
+<div class="card" style="width: 500px; margin-top: 15px;">
+  <% batch.refillable ? refillable = 'Ja' : refillable = 'Nej' %>
+  <% batch.unknownAmount ? unknownAmount = 'Ja' : unknownAmount = 'Nej' %>
+  <div class="card-body">
+    <h5 class="card-title">Namn: <%= batch.name %></h5>
+    <p class="card-text">
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item"><strong>Mängd:</strong> <%= batch.amount %></li>
+        <li class="list-group-item"><strong>Påfyllningsbar:</strong> <%= refillable %></li>
+        <li class="list-group-item"><strong>Okänd mängd:</strong> <%= unknownAmount %></li>
+        <li class="list-group-item"><strong>Enhet:</strong> <%= batch.unit %></li>
+        <li class="list-group-item"><strong>Fodertyp:</strong> <%= batch.fodderType %></li>
+      </ul>
+      <br>
+      <%= link_to '<button class="btn btn-info btn-sm">Visa</button>'.html_safe, batch %>
+      <%= link_to '<button class="btn btn-warning btn-sm">Ändra</button>'.html_safe, edit_batch_path(batch) %>
+      <%= link_to '<button class="btn btn-danger btn-sm">Ta bort</button>'.html_safe, batch, method: :delete, data: { confirm: 'Är du säker?' }%>
+    </p>
+  </div>
+</div>
+<% end %>

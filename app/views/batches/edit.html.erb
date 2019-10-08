@@ -1,6 +1,35 @@
 <h2>Ändra Batch</h2>
 
-<%= render 'form', batch: @batch %>
-
-<%= link_to 'Visa', @batch %> |
-<%= link_to 'Tillbaka', batches_path %>
+<%= form_with scope: :batch, url: batches_path, local: true do |form| %>
+<div class="form-group">
+  <label for="batchName">Namn</label>
+  <%= form.text_field :name, placeholder: @batch.name %>
+</div>
+<div class="form-group">
+  <label for="batchUnknownName">Okänd mängd</label>
+  <%= form.check_box :unknownAmount %>
+</div>
+<div class="form-group">
+  <label for="batchAmount">Mängd</label>
+  <%= form.number_field :amount %>
+</div>
+<div class="form-group">
+  <label for="batchRefillable">Påfyllningsbar</label>
+  <%= form.check_box :refillable %>
+</div>
+<div class="form-group">
+  <label for="batchUnit">Enhet</label>
+  <br>
+  <% @units.each do |unit|%>
+  <%= unit %> <%= form.radio_button :unit, unit %>
+  <% end %>
+</div>
+<div class="form-group">
+  <label for="batchFodderType">Fodertyp</label>
+  <br>
+  <% @fodder_types.each do |fodder_type|%>
+  <%= fodder_type %> <%= form.radio_button :fodderType, fodder_type %>
+  <% end %>
+</div>
+<%= form.submit 'Spara', {class: 'btn btn-success'} %> <%= link_to '<button class="btn btn-info">Visa</button>'.html_safe, @batch %> <%= link_to '<button class="btn btn-secondary">Tillbaka</button>'.html_safe, batches_path %>
+<% end %>

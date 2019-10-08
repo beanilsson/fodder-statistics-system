@@ -21,6 +21,8 @@ class BatchesController < ApplicationController
 
   # GET /batches/1/edit
   def edit
+    @units = ['dl', 'kg', 'g']
+    @fodder_types = ['Hö', 'Mineralfoder', 'Halm']
   end
 
   # POST /batches
@@ -64,13 +66,13 @@ class BatchesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_batch
-      @batch = Batch.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_batch
+    @batch = Batch.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def batch_params
-      params.require(:batch).permit(:name, :amount, :refillable, :unknownAmount, :unit, :fodderType)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def batch_params
+    params.require(:batch).permit(:name, :amount, :refillable, :unknownAmount, :unit, :fodderType)
+  end
 end
