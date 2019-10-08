@@ -32,7 +32,7 @@ class BatchesController < ApplicationController
 
     respond_to do |format|
       if @batch.save
-        format.html { redirect_to @batch, notice: 'Batch was successfully created.' }
+        format.html { redirect_to @batch, notice: 'Batch sparad!' }
         format.json { render :show, status: :created, location: @batch }
       else
         format.html { render :new }
@@ -46,7 +46,7 @@ class BatchesController < ApplicationController
   def update
     respond_to do |format|
       if @batch.update(batch_params)
-        format.html { redirect_to @batch, notice: 'Batch was successfully updated.' }
+        format.html { redirect_to @batch, notice: 'Batch uppdaterad!' }
         format.json { render :show, status: :ok, location: @batch }
       else
         format.html { render :edit }
@@ -60,7 +60,7 @@ class BatchesController < ApplicationController
   def destroy
     @batch.destroy
     respond_to do |format|
-      format.html { redirect_to batches_url, notice: 'Batch was successfully destroyed.' }
+      format.html { redirect_to batches_url, notice: 'Batch borttagen' }
       format.json { head :no_content }
     end
   end
