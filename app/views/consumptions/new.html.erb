@@ -1,0 +1,35 @@
+<h1>Ny utfodring</h1>
+
+<%= form_with scope: :consumption, url: consumptions_path, local: true do |form| %>
+<h2>Datum</h2>
+<p>
+  <%= form.date_field :date %>
+</p>
+
+<h2>Mängd</h2>
+<p>
+  <%= form.number_field :amount %>
+</p>
+
+<h2>Batch</h2>
+<% @batches.each do |batch|%>
+<p>
+  <%= form.label batch %>
+  <%= form.radio_button :batch, batch %>
+</p>
+<% end %>
+
+<h2>Djur/djurgrupp</h2>
+<% @animal_groups.each do |animal_group|%>
+<p>
+  <%= form.label animal_group %>
+  <%= form.radio_button :animal_group, animal_group %>
+</p>
+<% end %>
+
+<p>
+  <%= form.submit 'Spara' %>
+</p>
+<% end %>
+
+<%= link_to 'Tillbaka', consumptions_path %>

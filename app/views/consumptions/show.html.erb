@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @consumption.date %>
+</p>
+
+<p>
+  <strong>Amount:</strong>
+  <%= @consumption.amount %>
+</p>
+
+<p>
+  <strong>Batch:</strong>
+  <%= @consumption.batch %>
+</p>
+
+<p>
+  <strong>Animal group:</strong>
+  <%= @consumption.animal_group %>
+</p>
+
+<%= link_to 'Edit', edit_consumption_path(@consumption) %> |
+<%= link_to 'Back', consumptions_path %>

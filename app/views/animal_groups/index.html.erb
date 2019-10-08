@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Djur/djurgrupper</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Namn</th>
+      <th>Antal</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @animal_groups.each do |animal_group| %>
+      <tr>
+        <td><%= animal_group.name %></td>
+        <td><%= animal_group.amount %></td>
+        <td><%= link_to 'Visa', animal_group %></td>
+        <td><%= link_to 'Ändra', edit_animal_group_path(animal_group) %></td>
+        <td><%= link_to 'Ta bort', animal_group, method: :delete, data: { confirm: 'Är du säker?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<%= link_to 'Start', start_index_path %>
+<%= link_to 'Ny djurgrupp', new_animal_group_path %>

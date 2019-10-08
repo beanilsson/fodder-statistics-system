@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @batch.name %>
+</p>
+
+<p>
+  <strong>Amount:</strong>
+  <%= @batch.amount %>
+</p>
+
+<p>
+  <strong>Refillable:</strong>
+  <%= @batch.refillable %>
+</p>
+
+<p>
+  <strong>Unknownamount:</strong>
+  <%= @batch.unknownAmount %>
+</p>
+
+<p>
+  <strong>Unit:</strong>
+  <%= @batch.unit %>
+</p>
+
+<p>
+  <strong>Foddertype:</strong>
+  <%= @batch.fodderType %>
+</p>
+
+<%= link_to 'Edit', edit_batch_path(@batch) %> |
+<%= link_to 'Back', batches_path %>

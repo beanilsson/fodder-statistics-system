@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @animal_group.name %>
+</p>
+
+<p>
+  <strong>Amount:</strong>
+  <%= @animal_group.amount %>
+</p>
+
+<%= link_to 'Edit', edit_animal_group_path(@animal_group) %> |
+<%= link_to 'Back', animal_groups_path %>

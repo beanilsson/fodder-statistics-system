@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  amount: 1
+  refillable: false
+  unknownAmount: false
+  unit: MyString
+  fodderType: MyString
+
+two:
+  name: MyString
+  amount: 1
+  refillable: false
+  unknownAmount: false
+  unit: MyString
+  fodderType: MyString

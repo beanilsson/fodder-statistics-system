@@ -1,0 +1,19 @@
+<h1>Ny djurgrupp</h1>
+
+<%= form_with scope: :animal_group, url: animal_groups_path, local: true do |form| %>
+<p>
+  <%= form.label :name %><br>
+  <%= form.text_field :title %>
+</p>
+
+<p>
+  <%= form.label :amount %><br>
+  <%= form.number_field :amount %>
+</p>
+
+<p>
+  <%= form.submit 'Spara' %>
+</p>
+<% end %>
+
+<%= link_to 'Tillbaka', animal_groups_path %>
