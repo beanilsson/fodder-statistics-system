@@ -5,7 +5,8 @@
 <table>
   <thead>
     <tr>
-      <th>Daum</th>
+      <th>Första datum</th>
+      <th>Sista datum</th>
       <th>Mängd</th>
       <th>Batch</th>
       <th>Djurgrupp</th>
@@ -16,7 +17,8 @@
   <tbody>
     <% @consumptions.each do |consumption| %>
       <tr>
-        <td><%= consumption.date %></td>
+        <td><%= consumption.first_date %></td>
+        <td><%= consumption.last_date %></td>
         <td><%= consumption.amount %></td>
         <td><%= consumption.batch %></td>
         <td><%= consumption.animal_group %></td>
