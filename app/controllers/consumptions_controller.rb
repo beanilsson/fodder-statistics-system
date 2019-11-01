@@ -5,6 +5,14 @@ class ConsumptionsController < ApplicationController
   # GET /consumptions.json
   def index
     @consumptions = Consumption.all
+    @unit_batch_map = []
+    batches = Batch.all
+
+    batches.each do |batch|
+      name = batch.name
+      unit = batch.unit
+      @unit_batch_map.push [name, unit]
+    end
   end
 
   # GET /consumptions/1
@@ -72,13 +80,13 @@ class ConsumptionsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_consumption
-      @consumption = Consumption.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_consumption
+    @consumption = Consumption.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def consumption_params
-      params.require(:consumption).permit(:first_date, :last_date, :amount, :batch, :animal_group)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def consumption_params
+    params.require(:consumption).permit(:first_date, :last_date, :amount, :batch, :animal_group)
+  end
 end

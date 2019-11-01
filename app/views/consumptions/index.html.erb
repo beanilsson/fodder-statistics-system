@@ -4,13 +4,16 @@
 <%= link_to '<button class="btn btn-success">Ny utfodring</button>'.html_safe, new_consumption_path %>
 <br>
 <% @consumptions.each do |consumption| %>
+<% unit = @unit_batch_map.each do |ub|%>
+<% ub.find consumption.batch %>
+<% end %>
 <div class="card" style="width: 500px; margin-top: 15px;">
   <div class="card-body">
     <h5 class="card-title"><%= consumption[:first_date] %> - <%= consumption[:last_date] %></h5>
     <p class="card-text">
       <ul class="list-group list-group-flush">
         <li class="list-group-item"><strong>Mängd: </strong><%= consumption[:amount] %></li>
-        <li class="list-group-item"><strong>Batch: </strong><%= consumption[:batch] %></li>
+        <li class="list-group-item"><strong>Batch: </strong><%= consumption[:batch] %> <%= unit.last.last %></li>
         <li class="list-group-item"><strong>Djurgrupp: </strong><%= consumption[:animal_group] %></li>
       </ul>
       <br>
