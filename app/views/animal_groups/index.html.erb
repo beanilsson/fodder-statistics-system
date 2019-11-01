@@ -1,29 +1,21 @@
 <p id="notice"><%= notice %></p>
 
 <h2>Djur/djurgrupper</h2>
-
-<table>
-  <thead>
-    <tr>
-      <th>Namn</th>
-      <th>Antal</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @animal_groups.each do |animal_group| %>
-      <tr>
-        <td><%= animal_group.name %></td>
-        <td><%= animal_group.amount %></td>
-        <td><%= link_to 'Visa', animal_group %></td>
-        <td><%= link_to 'Ändra', edit_animal_group_path(animal_group) %></td>
-        <td><%= link_to 'Ta bort', animal_group, method: :delete, data: { confirm: 'Är du säker?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
+<%= link_to '<button class="btn btn-success">Ny djurgrupp</button>'.html_safe, new_animal_group_path %>
 <br>
-<%= link_to 'Start', start_index_path %>
-<%= link_to 'Ny djurgrupp', new_animal_group_path %>
+<% @animal_groups.each do |animal_group| %>
+<div class="card" style="width: 500px; margin-top: 15px;">
+  <div class="card-body">
+    <h5 class="card-title"><%= animal_group.name %></h5>
+    <p class="card-text">
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item"><strong>Antal: </strong><%= animal_group.amount %></li>
+      </ul>
+      <br>
+      <%= link_to '<button class="btn btn-info btn-sm">Visa</button>'.html_safe, animal_group %>
+      <%= link_to '<button class="btn btn-warning btn-sm">Ändra</button>'.html_safe, edit_animal_group_path(animal_group) %>
+      <%= link_to '<button class="btn btn-danger btn-sm">Ta bort</button>'.html_safe, animal_group, method: :delete, data: { confirm: 'Är du säker?' }%>
+    </p>
+  </div>
+</div>
+<% end %>

@@ -1,16 +1,9 @@
 <p id="notice"><%= notice %></p>
 
 <h2>Djur/djurgrupp</h2>
-
-<p>
-  <strong>Namn:</strong>
-  <%= @animal_group.name %>
-</p>
-
-<p>
-  <strong>Antal:</strong>
-  <%= @animal_group.amount %>
-</p>
-
-<%= link_to 'Ändra', edit_animal_group_path(@animal_group) %> |
-<%= link_to 'Tillbaka', animal_groups_path %>
+<ul class="list-group list-group-flush">
+  <li class="list-group-item"><strong>Namn:</strong> <%= @animal_group.name %></li>
+  <li class="list-group-item"><strong>Mängd:</strong> <%= @animal_group.amount %></li>
+</ul>
+<br>
+<%= link_to '<button class="btn btn-warning">Ändra</button>'.html_safe, edit_animal_group_path(@animal_group) %> <%= link_to '<button class="btn btn-secondary">Tillbaka</button>'.html_safe, animal_groups_path %>
