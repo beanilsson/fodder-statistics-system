@@ -1,4 +1,4 @@
-window.onload = function() {
+document.addEventListener('turbolinks:load', function() {
     const tabsContainer = document.getElementById('tabs-container');
     if (tabsContainer === null) {
         return;
@@ -27,4 +27,4 @@ window.onload = function() {
         document.getElementById(id).style.display = "block";
         evt.currentTarget.className += " active";
     }
-};
+});
