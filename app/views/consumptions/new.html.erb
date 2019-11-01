@@ -1,40 +1,32 @@
 <h2>Ny utfodring</h2>
 
 <%= form_with scope: :consumption, url: consumptions_path, local: true do |form| %>
-<h2>Första datum</h2>
-<p>
+<div class="form-group">
+  <label for="consumptionFirstDate">Första datum: </label>
   <%= form.date_field :first_date %>
-</p>
-
-<h2>Sista datum</h2>
-<p>
+</div>
+<div class="form-group">
+  <label for="consumptionLastDate">Sista datum: </label>
   <%= form.date_field :last_date %>
-</p>
-
-<h2>Mängd</h2>
-<p>
+</div>
+<div class="form-group">
+  <label for="consumptionAmount">Mängd: </label>
   <%= form.number_field :amount %>
-</p>
-
-<h2>Batch</h2>
-<% @batches.each do |batch|%>
-<p>
+</div>
+<div class="form-group">
+  <label for="consumptionAmount">Batch: </label>
+  <% @batches.each do |batch|%>
   <%= form.label batch %>
   <%= form.radio_button :batch, batch %>
-</p>
-<% end %>
-
-<h2>Djur/djurgrupp</h2>
-<% @animal_groups.each do |animal_group|%>
-<p>
+  <% end %>
+</div>
+<div class="form-group">
+  <label for="consumptionAnimalGroup">Djur/djurgrupp: </label>
+  <% @animal_groups.each do |animal_group|%>
   <%= form.label animal_group %>
   <%= form.radio_button :animal_group, animal_group %>
-</p>
-<% end %>
+  <% end %>
+</div>
 
-<p>
-  <%= form.submit 'Spara' %>
-</p>
+<%= form.submit 'Spara', {class: 'btn btn-success'} %> <%= link_to '<button class="btn btn-secondary">Tillbaka</button>'.html_safe, consumptions_path %>
 <% end %>
-
-<%= link_to 'Tillbaka', consumptions_path %>

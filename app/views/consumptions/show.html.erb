@@ -2,25 +2,13 @@
 
 <h2>Utfodring</h2>
 
-<p>
-  <strong>Datum:</strong>
-  <%= @consumption.date %>
-</p>
-
-<p>
-  <strong>Mängd:</strong>
-  <%= @consumption.amount %>
-</p>
-
-<p>
-  <strong>Batch:</strong>
-  <%= @consumption.batch %>
-</p>
-
-<p>
-  <strong>Djur/djurgrupp:</strong>
-  <%= @consumption.animal_group %>
-</p>
-
-<%= link_to 'Ändra', edit_consumption_path(@consumption) %> |
-<%= link_to 'Tillbaka', consumptions_path %>
+<ul class="list-group list-group-flush">
+  <li class="list-group-item"><strong>Första datum: </strong><%= @consumption.first_date %></li>
+  <li class="list-group-item"><strong>Sista datum: </strong><%= @consumption.last_date %></li>
+  <li class="list-group-item"><strong>Mängd: </strong><%= @consumption.amount %></li>
+  <li class="list-group-item"><strong>Batch: </strong><%= @consumption.batch %></li>
+  <li class="list-group-item"><strong>Djurgrupp: </strong><%= @consumption.animal_group %></li>
+</ul>
+<br>
+<%= link_to '<button class="btn btn-warning">Ändra</button>'.html_safe, edit_consumption_path(@consumption) %>
+<%= link_to '<button class="btn btn-secondary">Tillbaka</button>'.html_safe, consumptions_path %>

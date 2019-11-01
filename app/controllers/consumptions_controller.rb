@@ -37,6 +37,16 @@ class ConsumptionsController < ApplicationController
 
   # GET /consumptions/1/edit
   def edit
+    @batches = []
+    @animal_groups = []
+
+    Batch.each do |batch|
+      @batches.push batch.name
+    end
+
+    AnimalGroup.each do |animal_group|
+      @animal_groups.push animal_group.name
+    end
   end
 
   # POST /consumptions

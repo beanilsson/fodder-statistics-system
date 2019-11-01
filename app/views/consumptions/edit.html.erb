@@ -1,6 +1,32 @@
 <h2>Ändra utfodring</h2>
 
-<%= render 'form', consumption: @consumption %>
+<%= form_with scope: :consumption, url: consumptions_path, local: true do |form| %>
+<div class="form-group">
+  <label for="consumptionFirstDate">Första datum: </label>
+  <%= form.date_field :first_date, placeholder: @consumption.first_date %>
+</div>
+<div class="form-group">
+  <label for="consumptionLastDate">Sista datum: </label>
+  <%= form.date_field :last_date, placeholder: @consumption.last_date %>
+</div>
+<div class="form-group">
+  <label for="consumptionAmount">Mängd: </label>
+  <%= form.number_field :amount, placeholder: @consumption.amount %>
+</div>
+<div class="form-group">
+  <label for="consumptionAmount">Batch: </label>
+  <% @batches.each do |batch|%>
+  <%= form.label batch %>
+  <%= form.radio_button :batch, batch %>
+  <% end %>
+</div>
+<div class="form-group">
+  <label for="consumptionAnimalGroup">Djur/djurgrupp: </label>
+  <% @animal_groups.each do |animal_group|%>
+  <%= form.label animal_group %>
+  <%= form.radio_button :animal_group, animal_group %>
+  <% end %>
+</div>
 
-<%= link_to 'Visa', @consumption %> |
-<%= link_to 'Tillbaka', consumptions_path %>
+<%= form.submit 'Spara', {class: 'btn btn-success'} %> <%= link_to '<button class="btn btn-secondary">Tillbaka</button>'.html_safe, consumptions_path %>
+<% end %>
