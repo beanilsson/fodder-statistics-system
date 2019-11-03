@@ -29,6 +29,8 @@ class BatchesController < ApplicationController
   # POST /batches.json
   def create
     @batch = Batch.new(batch_params)
+    @units = ['dl', 'kg', 'g']
+    @fodder_types = ['Hö', 'Mineralfoder', 'Halm']
 
     respond_to do |format|
       if @batch.save
@@ -44,7 +46,11 @@ class BatchesController < ApplicationController
   # PATCH/PUT /batches/1
   # PATCH/PUT /batches/1.json
   def update
+    @units = ['dl', 'kg', 'g']
+    @fodder_types = ['Hö', 'Mineralfoder', 'Halm']
+
     respond_to do |format|
+      @batch = Batch.find(params[:id])
       if @batch.update(batch_params)
         format.html { redirect_to @batch, notice: 'Batch uppdaterad!' }
         format.json { render :show, status: :ok, location: @batch }

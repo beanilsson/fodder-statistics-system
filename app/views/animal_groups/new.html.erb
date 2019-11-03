@@ -1,5 +1,14 @@
 <h2>Nytt djur/ny djurgrupp</h2>
-
+<% if @animal_group.errors.any? %>
+<div id="error_explanation">
+  <h2><%= @animal_group.errors.count %> fel</h2>
+  <ul>
+    <% @animal_group.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
 <%= form_with scope: :animal_group, url: animal_groups_path, local: true do |form| %>
 <div class="form-group">
   <label for="batchName">Namn</label>

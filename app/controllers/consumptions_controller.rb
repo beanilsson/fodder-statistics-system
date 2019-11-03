@@ -52,6 +52,18 @@ class ConsumptionsController < ApplicationController
   # POST /consumptions
   # POST /consumptions.json
   def create
+    @consumption = Consumption.new
+    @batches = []
+    @animal_groups = []
+
+    Batch.each do |batch|
+      @batches.push batch.name
+    end
+
+    AnimalGroup.each do |animal_group|
+      @animal_groups.push animal_group.name
+    end
+
     @consumption = Consumption.new(consumption_params)
 
     respond_to do |format|
@@ -68,9 +80,22 @@ class ConsumptionsController < ApplicationController
   # PATCH/PUT /consumptions/1
   # PATCH/PUT /consumptions/1.json
   def update
+    @consumption = Consumption.new
+    @batches = []
+    @animal_groups = []
+
+    Batch.each do |batch|
+      @batches.push batch.name
+    end
+
+    AnimalGroup.each do |animal_group|
+      @animal_groups.push animal_group.name
+    end
+
     respond_to do |format|
+      @consumption = Consumption.find(params[:id])
       if @consumption.update(consumption_params)
-        format.html { redirect_to @consumption, notice: 'Consumption was successfully updated.' }
+        format.html { redirect_to @consumption, notice: 'Utfodring uppdaterad!' }
         format.json { render :show, status: :ok, location: @consumption }
       else
         format.html { render :edit }

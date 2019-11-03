@@ -1,6 +1,15 @@
 <h2>Ändra Batch</h2>
-
-<%= form_with scope: :batch, url: batches_path, local: true do |form| %>
+<% if @batch.errors.any? %>
+<div id="error_explanation">
+  <h2><%= @batch.errors.count %> fel</h2>
+  <ul>
+    <% @batch.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+<%= form_with(model: @batch, local: true) do |form| %>
 <div class="form-group">
   <label for="batchName">Namn</label>
   <%= form.text_field :name, placeholder: @batch.name %>

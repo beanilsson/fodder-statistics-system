@@ -1,6 +1,5 @@
 class AnimalGroupsController < ApplicationController
   before_action :set_animal_group, only: [:show, :edit, :update, :destroy]
-
   # GET /animal_groups
   # GET /animal_groups.json
   def index
@@ -41,8 +40,9 @@ class AnimalGroupsController < ApplicationController
   # PATCH/PUT /animal_groups/1.json
   def update
     respond_to do |format|
+      @animal_group = AnimalGroup.find(params[:id])
       if @animal_group.update(animal_group_params)
-        format.html { redirect_to @animal_group, notice: 'Animal group was successfully updated.' }
+        format.html { redirect_to @animal_group, notice: 'Djurgrupp uppdaterad!' }
         format.json { render :show, status: :ok, location: @animal_group }
       else
         format.html { render :edit }
@@ -62,13 +62,13 @@ class AnimalGroupsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_animal_group
-      @animal_group = AnimalGroup.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_animal_group
+    @animal_group = AnimalGroup.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def animal_group_params
-      params.require(:animal_group).permit(:name, :amount)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def animal_group_params
+    params.require(:animal_group).permit(:name, :amount)
+  end
 end

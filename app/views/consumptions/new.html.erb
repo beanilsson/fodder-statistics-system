@@ -1,5 +1,14 @@
 <h2>Ny utfodring</h2>
-
+<% if @consumption.errors.any? %>
+<div id="error_explanation">
+  <h2><%= @consumption.errors.count %> fel</h2>
+  <ul>
+    <% @consumption.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
 <%= form_with scope: :consumption, url: consumptions_path, local: true do |form| %>
 <div class="form-group">
   <label for="consumptionFirstDate">Första datum: </label>
